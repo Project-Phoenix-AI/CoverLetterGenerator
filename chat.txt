@@ -1,0 +1,30 @@
+Subject: Application for Data Scientist Position
+
+Dear Hiring Manager,
+
+I am writing to express my interest in the Data Scientist position at [Company Name], as advertised.
+With a strong background in machine learning and hands-on experience in implementing data processing workflows, 
+developing neural networks, and applying advanced statistical analysis, I believe I am well-equipped to contribute effectively to your team.
+
+In my role as a Junior Data Scientist at PRICER, I successfully implemented and optimized data processing workflows using Google Cloud Functions, developed and maintained data pipelines with Google BigQuery, and applied advanced statistical analysis and machine learning models to extract meaningful insights from large datasets. 
+The opportunity to visualize findings with Qlik Sense dashboards enhanced my communication skills, making complex data accessible to R&D team.
+
+As a Co-Founder of OMVISION, I played a key role in crafting data pipelines, developing various network architectures for binary, multi-class, and multi-label classification, and constructing a web application using Flask and JavaScript.
+This experience showcased my ability to lead projects from preprocessing data to deploying machine learning models in a practical setting.
+
+My academic background includes an MSc in Machine Learning from KTH Royal Institute of Technology, where I acquired a solid foundation in machine learning techniques. 
+Additionally, I have a degree in Electronics and Communication Engineering from Istanbul Technical University.
+
+I am proud to mention that I won the TUBITAK BIGG 2021 award, an Individual Young Entrepreneur program, supporting the early incubation of OMVISION. 
+This startup focuses on the application of deep learning in the healthcare industry, showcasing my entrepreneurial spirit and commitment to innovation.
+
+Some of my notable projects include Intracranial Hemorrhage Detection, Camera Model Detection, Mood Prediction from EEG Signals, Music Genre Classification, and Churn Turknet Dataset. 
+These projects reflect my versatility in solving real-world problems using a variety of data science methodologies and tools.
+
+I am excited about the opportunity to bring my technical skills, innovative mindset, and passion for data science to {Company_Name}. I am confident that my blend of academic knowledge, 
+hands-on experience, and commitment to excellence makes me a strong candidate for this position.
+
+Thank you for considering my application. I look forward to the opportunity to discuss how my skills and experiences align with the goals of your team.
+
+Sincerely,
+[Name]
