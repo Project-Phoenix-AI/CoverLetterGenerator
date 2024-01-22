@@ -8,6 +8,8 @@ __pycache__/
 /cover_letters
 # C extensions
 *.so
+*.pdf
+*.txt
 
 # Distribution / packaging
 .Python
