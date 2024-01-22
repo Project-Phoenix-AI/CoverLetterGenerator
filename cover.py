@@ -73,7 +73,7 @@ summary = document.add_paragraph(summary)
 name = document.add_paragraph('Berkan Yapıcı')
 
 company_name = company.replace(' ','_')
-doc_name = f'cover_letter_{company_name}.docx'
+doc_name = f'cover_letter_{company_name}_{position}.docx'
 
 if not os.path.exists('cover_letters/docs'):
     os.mkdir('cover_letters/docs')
