@@ -9,18 +9,13 @@ def get_company_name(args: list) -> str:
     :return: capitalized company name
     :rtype: string
     '''
-    res = map(format_company_name,args[2:]) 
+    res = map(lambda x: x.upper() if len(x) <= 3 else x.capitalize(), args[2:]) 
     res = list(res)
     return ' '.join(res)
-
-def format_company_name(s):
-    if len(s) <= 3:
-        return s.upper()
-    else:
-        return s.capitalize()
-
 
 
 if __name__ == "__main__":
     res = get_company_name(argv)
     print(res)
+    f = lambda x: x.upper() if len(x) <= 3 else x.capitalize()
+    print(f('imc'))

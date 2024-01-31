@@ -13,7 +13,6 @@ position = argv[1]
 if len(argv) >= 3:
     company = get_company_name(argv)
 
-print(company)
 
 document = Document()
 
@@ -24,14 +23,14 @@ font.size = Pt(11)
 
 greetings =document.add_paragraph("Dear Hiring Manager,")
 
-interest = {'cs':'software engineer','ml':'machine learning engineer','ds':'data scientist', 'deng':'data engineer'}
-positions = {'cs':'software engineering','ml':'machine learning engineering','ds':'data science','deng':'data engineering'}
+interest = {'cs':'software engineer','ml':'machine learning engineer','ds':'data scientist', 'deng':'data engineer', 'mlops':'MLOps engineer'}
+positions = {'cs':'software engineering','ml':'machine learning engineering','ds':'data science','deng':'data engineering','mlops':'MLOps engineering'}
 body = f'''
 I am writing to express my interest in the {interest[position]} position at {company}, as advertised. With a strong background in machine learning and hands-on experience in implementing data processing workflows, developing neural networks, and applying advanced statistical analysis, I believe I am well-equipped to contribute effectively to your team.
 
 In my role as a Junior Data Scientist at PRICER, I successfully implemented and optimized data processing workflows using Google Cloud Functions, developed and maintained data pipelines with Google BigQuery, and applied advanced statistical analysis and machine learning models to extract meaningful insights from large datasets. The opportunity to visualize findings with Qlik Sense dashboards enhanced my communication skills, making complex data accessible to R&D team.
 
-My academic background includes an MSc in Machine Learning from KTH Royal Institute of Technology, where I acquired a solid foundation in machine learning techniques. Additionally, I have a degree in Electronics and Communication Engineering from Istanbul Technical University.
+My academic background includes pursuing an MSc in Machine Learning from KTH Royal Institute of Technology, where I acquired a solid foundation in machine learning techniques. Additionally, I have a degree in Electronics and Communication Engineering from Istanbul Technical University.
 
 I am proud to mention that I won the TUBITAK BIGG 2021 award, an Individual Young Entrepreneur program, supporting the early incubation of OMVISION. This startup focuses on the application of deep learning in the healthcare industry, showcasing my entrepreneurial spirit and commitment to innovation.
 '''
@@ -83,6 +82,7 @@ if not os.path.exists('cover_letters'):
 
 save_path = f'cover_letters/docs/{doc_name}'
 document.save(save_path)
+print('cover letter:', company, '\nposition:' ,positions[position])
 
 # file = open(save_path, "w")
 # convert(f'/cover_letters/docs/{doc_name}', f'/cover_letters/pdf/{doc_name}.pdf')
