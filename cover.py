@@ -6,15 +6,17 @@ import os
 from utils import get_company_name
 
 
-if len(argv) >= 3:
-    company = get_company_name(argv)
-else:
-    print("usage: python cover.py position(ml,ds,cs) company(company name)")
-    exit(0)
 
 
 interest = {'cs':'software engineer','ml':'machine learning engineer','ds':'data scientist', 'deng':'data engineer', 'mlops':'MLOps engineer'}
 positions = {'cs':'software engineering','ml':'machine learning engineering','ds':'data science','deng':'data engineering','mlops':'MLOps engineering'}
+
+
+if len(argv) >= 3:
+    company = get_company_name(argv)
+else:
+    print(f"usage: python cover.py {list(positions.keys())} 'company name'")
+    exit(0)
 
 if argv[1] not in positions:
     print('invalid position:', argv[1], )
@@ -82,12 +84,13 @@ name = document.add_paragraph('Berkan Yapıcı')
 company_name = company.replace(' ','_')
 doc_name = f'cover_letter_{company_name}_{position}.docx'
 
+
 if not os.path.exists('cover_letters/docs'):
     os.mkdir('cover_letters/docs')
 
 
-save_path = f'cover_letters/docs/{doc_name}'
-document.save(save_path)
+path = f'cover_letters/docs/{doc_name}'
+document.save(path)
 print('cover letter:', company, '\nposition:' ,positions[position].capitalize())
 
 
