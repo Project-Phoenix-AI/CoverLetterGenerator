@@ -32,17 +32,13 @@ font = style.font
 font.name = 'Calibri'#'Times New Roman'#'Calibri'
 font.size = Pt(11)
 
-greetings =document.add_paragraph("Dear Hiring Manager,")
 
+greetings = document.add_paragraph("Dear Hiring Manager,")
 
 body = f'''
-I am writing to express my interest in the {interest[position]} position at {company}, as advertised. With a strong background in machine learning and hands-on experience in implementing data processing workflows, developing neural networks, and applying advanced statistical analysis, I am excited about the opportunity to contribute to {company}'s innovative team.
+I am writing to express my interest in the {interest[position]} position at {company}, as advertised. My academic background includes pursuing an MSc in Machine Learning from KTH Royal Institute of Technology, where I acquired a solid foundation in machine learning algorithms. Additionally, I have a degree in Electronics and Communication Engineering from Istanbul Technical University. 
 
-At PRICER, I successfully implemented and optimized data processing workflows using Google Cloud Functions, I developed and maintained data pipelines with Google BigQuery instead of Google Cloud Run, which led to a considerable improvement in processing efficiency. Applying advanced statistical analysis and machine learning models, I extracted meaningful insights from large datasets. Visualizing findings with Qlik Sense dashboards not only enhanced my technical communication skills but also made complex data accessible to the entire R&D and marketing team.
-
-My academic background includes pursuing an MSc in Machine Learning from KTH Royal Institute of Technology, where I acquired a solid foundation in machine learning techniques. Additionally, I have a degree in Electronics and Communication Engineering from Istanbul Technical University.
-
-I am proud to mention that I won the TUBITAK BIGG 2021 award, an Individual Young Entrepreneur program, supporting the early incubation of OMVISION. The startup focuses on the application of deep learning in the healthcare industry, showcasing my entrepreneurial spirit and commitment to innovation.
+With hands-on experience as a Data Scientist, I have implemented data processing workflows using google bigquery, cloud functions and pub/sub, developed neural networks and machine learning models for regression tasks.
 '''
 
 body = document.add_paragraph(body)
@@ -67,7 +63,7 @@ bullet_points = {'ml':[
                     'pandas, scikit-learn, keras, tensorflow, flask, seaborn, matplotlib',
                     'Github Actions, Terraform, Docker'],
                 'all':[
-                    'Google Cloud Platform (GCP), Google Big Query, Cloud Functions, Vertex AI, Qlik Sense',
+                    'Google Cloud, Google Big Query, Cloud Functions, Pub/Sub, Qlik Sense',
                     'pandas, scikit-learn, keras, pytorch, tensorflow, flask, seaborn, matplotlib',
                     'Github Actions, Terraform, Docker'],
                 }
@@ -78,11 +74,9 @@ for point in bullet_points['all']:
 
 
 summary =f'''
-I am excited about the opportunity to bring my technical skills, innovative mindset, and passion for {positions[position]} to {company}. I am confident that my blend of academic knowledge, hands-on experience, and commitment to excellence makes me a strong candidate for this position.
-
-Thank you for considering my application. I look forward to the opportunity to discuss how my skills and experiences can contribute to the success of your team.
+I am excited about the opportunity to bring my technical skills, innovative mindset, and passion for {positions[position]} to {company}. I am confident that my blend of academic knowledge, work experience, and commitment to excellence makes me a strong candidate for this position. Thank you for considering my application. I look forward to the opportunity to discuss how my skills and experiences can contribute to the success of your team.
 '''
-summary = document.add_paragraph(summary)
+summmary = document.add_paragraph(summary)
 
 
 name = document.add_paragraph('Berkan Yapıcı')
@@ -94,13 +88,15 @@ doc_name = f'cover_letter_{company_name}_{position}.docx'
 if not os.path.exists('cover_letters/docs'):
     os.mkdir('cover_letters/docs')
 
-
 path = f'cover_letters/docs/{doc_name}'
 document.save(path)
+
+if not os.path.exists('cover_letters/pdfs'):
+    os.mkdir('cover_letters/pdfs')
+    
+convert(path, f'cover_letters/pdfs/{doc_name.replace("docx","pdf")}')
+
 print('cover letter:', company, '\nposition:' ,positions[position].capitalize())
-
-
-
 
 
 
