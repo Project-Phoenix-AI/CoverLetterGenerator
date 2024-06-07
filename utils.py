@@ -24,6 +24,13 @@ def get_company_name(args: list) -> str:
     company_name = list(company_name)
     return ' '.join(company_name)
 
+def name_formatter(s):
+    '''
+    Format the names, changes ibm -> IBM
+    '''
+    if len(s) < 4:
+        return s.upper()
+    return s.capitalize()
 
 if __name__ == "__main__":
     print(argv[0])

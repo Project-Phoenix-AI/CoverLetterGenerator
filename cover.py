@@ -6,29 +6,39 @@ import os
 from utils import get_company_name, get_hiring_manager_name
 import argparse
 
-
-# parser = argparse.ArgumentParser()
-# parser.add_argument('--manager',help ='The name of the hiring manager')
-# parser.add_argument('--pos',help = 'Shortcut for the position name')
-# parser.add_argument('--company',help = 'Company name')
+parser = argparse.ArgumentParser()
+parser.add_argument('--pos','-p',help = 'Shortcut for the position name',metavar='cs',type = str,default = 'ds')
+parser.add_argument('--company','-c',help = 'Company name',metavar = 'meta',type = str,nargs = "+")
+parser.add_argument('--manager','-m',help ='The name of the hiring manager',metavar = 'john',type = str,default = 'Dear Hiring Manager,',nargs = "+")
+args = parser.parse_args()
 
 interest = {'intern':'internship','cs':'software engineer','ml':'machine learning engineer','ds':'data scientist', 'deng':'data engineer', 'mlops':'MLOps engineer','da':'data analyst'}
 positions = {'intern':'computer vision','cs':'software engineering','ml':'machine learning engineering','ds':'data science','deng':'data engineering','mlops':'MLOps engineering','da':'data science'}
 
+# if len(argv) >= 3:
+#     company = get_company_name(argv)
+#     hiring_manager = get_hiring_manager_name(argv)
+# else:
+#     print(f"usage: python cover.py {list(positions.keys())} 'company name'")
+#     exit(0)
+position = args.pos
 
-if len(argv) >= 3:
-    company = get_company_name(argv)
-    hiring_manager = get_hiring_manager_name(argv)
+if isinstance(args.manager,list):
+    hiring_manager = ' '.join(list(map(lambda x: x.capitalize(),args.manager)))
+    hiring_manager = f"Dear {hiring_manager},"
 else:
-    print(f"usage: python cover.py {list(positions.keys())} 'company name'")
-    exit(0)
+    hiring_manager = args.manager
 
-if argv[1] not in positions:
-    print('invalid position:', argv[1], )
-    print('valid positions:', list(positions.keys()))
+company = ' '.join(args.company)
+
+if len(company) <= 1:
+    print('Enter the company',company)
     exit(1)
 
-position = argv[1]
+if position not in positions:
+    print('invalid position:', position, )
+    print('valid positions:', list(positions.keys()))
+    exit(1)
 
 document = Document()
 
@@ -102,7 +112,8 @@ document.save(path)
     
 # convert(path, f'cover_letters/pdfs/{doc_name.replace("docx","pdf")}')
 
-print('cover letter:', company, '\nposition:' ,positions[position].capitalize())
+print(f'cover letter generated\ncompany:{company}\nposition:{positions[position].capitalize()}')
+
 
 
 
