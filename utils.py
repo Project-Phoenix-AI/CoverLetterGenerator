@@ -1,6 +1,17 @@
 
 from sys import argv,exit
 
+
+def get_hiring_manager_name(args: list) -> str:
+    name = args[2:4]
+    name = list(map(lambda x: x.capitalize(),name))
+    name =' '.join(name)
+    if len(name) < 4:
+        return 'Dear Hiring Manager,'
+    introduction = f"Dear {name},"
+    return introduction
+    
+
 def get_company_name(args: list) -> str:
     '''
     Modify the company name
@@ -9,13 +20,13 @@ def get_company_name(args: list) -> str:
     :return: capitalized company name
     :rtype: string
     '''
-    res = map(lambda x: x.upper() if len(x) <= 3 else x.capitalize(), args[2:]) 
-    res = list(res)
-    return ' '.join(res)
+    company_name = map(lambda x: x.upper() if len(x) <= 3 else x.capitalize(), args[4:]) 
+    company_name = list(company_name)
+    return ' '.join(company_name)
 
 
 if __name__ == "__main__":
-    res = get_company_name(argv)
-    print(res)
+    print(argv[0])
+    print('company name:',get_company_name(argv))
+    print('hiring manager name:',get_hiring_manager_name(argv))
     f = lambda x: x.upper() if len(x) <= 3 else x.capitalize()
-    print(f('imc'))
