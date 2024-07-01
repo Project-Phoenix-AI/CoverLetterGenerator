@@ -12,8 +12,8 @@ parser.add_argument('--company','-c',help = 'Company name',metavar = 'meta',type
 parser.add_argument('--manager','-m',help ='The name of the hiring manager',metavar = 'john',type = str,default = 'Dear Hiring Manager,',nargs = "+")
 args = parser.parse_args()
 
-interest = {'intern':'internship','cs':'software engineer','ml':'machine learning engineer','ds':'data scientist', 'deng':'data engineer', 'mlops':'MLOps engineer','da':'data analyst'}
-positions = {'intern':'computer vision','cs':'software engineering','ml':'machine learning engineering','ds':'data science','deng':'data engineering','mlops':'MLOps engineering','da':'data science'}
+positions = {'ai':'AI engineer','intern':'internship','cs':'software engineer','ml':'machine learning engineer','ds':'data scientist', 'deng':'data engineer', 'mlops':'MLOps engineer','da':'data analyst'}
+#positions = {'ai':'machine learning','intern':'computer vision','cs':'software engineering','ml':'machine learning engineering','ds':'data science','deng':'data engineering','mlops':'MLOps engineering','da':'data science'}
 
 # if len(argv) >= 3:
 #     company = get_company_name(argv)
@@ -51,7 +51,7 @@ greetings = hiring_manager
 greetings = document.add_paragraph(greetings)
 
 body = f'''
-I am writing for {interest[position]} position at {company}! I am pursuing an MSc in Machine Learning at KTH Royal Institute of Technology. I have a bachelor's degree in degree in Electronics and Communication Engineering from Istanbul Technical University with a GPA 3.42 out of 4.0.  
+I am writing for {positions[position]} position at {company}! I am pursuing an MSc in Machine Learning at KTH Royal Institute of Technology. I have a bachelor's degree in degree in Electronics and Communication Engineering from Istanbul Technical University with a GPA 3.42 out of 4.0.  
 
 I worked full-time as a Data Scientist while doing my master's, illustrating my ability to manage tight deadlines effectively. I have experience in google cloud tools. In my work, I have implemented data processing workflows using google BigQuery, Cloud Functions, Cloud Run and Pub/Sub. I developed neural networks and machine learning models for forecasting battery lifetime.'''
 
@@ -77,9 +77,10 @@ bullet_points = {'ml':[
                     'pandas, scikit-learn, keras, tensorflow, flask, seaborn, matplotlib',
                     'Github Actions, Terraform, Docker'],
                 'all':[
-                    'Google Cloud, Google BigQuery, Cloud Functions, Pub/Sub, Qlik Sense',
+                    'GCP: Compute Engine, BigQuery, Cloud Functions, Pub/Sub, Artifact Registry, Vertex AI',
+                    'AWS: Lambda, S3, EC2, Sagemaker, Elastic Container Registry',
                     'Github Actions, Terraform, Docker',
-                    'Pandas, Scikit-learn, Keras, Pytorch, Tensorflow, Flask, Seaborn, Matplotlib'
+                    'Pandas, Scikit-learn, Keras, Pytorch, Tensorflow, Flask, Seaborn, Matplotlib, Qlik Sense'
                     ],
                 }
 
@@ -107,10 +108,10 @@ if not os.path.exists('cover_letters/docs'):
 path = f'cover_letters/docs/{doc_name}'
 document.save(path)
 
-# if not os.path.exists('cover_letters/pdfs'):
-#     os.mkdir('cover_letters/pdfs')
+if not os.path.exists('cover_letters/pdfs'):
+    os.mkdir('cover_letters/pdfs')
     
-# convert(path, f'cover_letters/pdfs/{doc_name.replace("docx","pdf")}')
+convert(path, f'cover_letters/pdfs/{doc_name.replace("docx","pdf")}')
 
 print(f'cover letter generated\ncompany:{company}\nposition:{positions[position].capitalize()}')
 
